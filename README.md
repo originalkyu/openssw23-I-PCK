@@ -22,10 +22,10 @@ NAFNet을 이용한 디노이징과 opencv의 이미지 필터링(cv2.filter2D, 
 ![total2-input2](https://github.com/originalkyu/openssw23-I-PCK/assets/107669268/223ab2d9-1343-4ef3-853f-459dca7010ff)  
 
 각 이미지의 구성은 왼쪽부터 차례대로  
-  (1)원본 이미지  
-  (2)원본에 노이즈를 추가한 이미지(가우시안 노이즈: 예시1, 예시2),(pepper and salt noise: 예시3, 예시4)
-  (3)opencv filter2D 함수로 필터링한 이미지(예시1, 예시2)  opencv medianBlur(Y, ksize) 함수로 필터링한 이미지(예시3, 예시4)
-  (4) NAFNet을 이용해서 디노이징한 이미지  
+  (1)원본 이미지   
+  (2)원본에 노이즈를 추가한 이미지(가우시안 노이즈: 예시1, 예시2),(pepper and salt noise: 예시3, 예시4)   
+  (3)opencv filter2D 함수로 필터링한 이미지(예시1, 예시2)  opencv medianBlur(Y, ksize) 함수로 필터링한 이미지(예시3, 예시4)   
+  (4) NAFNet을 이용해서 디노이징한 이미지   
 
 ## Analysis/Visualization
 Empty
