@@ -7,6 +7,7 @@ from basicsr.utils.options import parse
 import matplotlib.pyplot as plt
 import gc
 import random
+import sys
 
 def imread(img_path):
     img = cv2.imread(img_path)
@@ -99,6 +100,7 @@ def main():
 
     opt_path = './NAFNet-width64.yml'
 
+    filename = sys.argv[1]
     
     # step1 noisy image와 pepper and salt noist image 만들기
     input = inputpath + filename
