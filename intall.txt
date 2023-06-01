@@ -1,0 +1,30 @@
+Test1 : NAFNet 으로 노이즈 제거
+
+conda create -n openssw_NAFNet
+git clone https://github.com/megvii-research/NAFNet
+pip install -r requirements.txt
+pip install --upgrade --no-cache-dir gdown
+
+torch 설치 - Stable(2.0.1), Windows, Pip, Python, CUDA 11.7
+
+python3 setup.py develop --no_cuda_ext
+
+pip install matplotlib
+
+```python
+import gdown
+gdown.download('https://drive.google.com/uc?id=14Fht1QQJ2gMlk4N1ERCRuElg8JfjrWWR', "./experiments/pretrained_models/", quiet=False)
+
+gdown.download('https://drive.google.com/uc?id=1uKwZUgeGfBYLlPKllSuzgGUItlzb40hm', "demo_input/", quiet=False)
+gdown.download('https://drive.google.com/uc?id=1ov6UqpIA6GjjJT5SdGeUAJECxka14nGf', "demo_input/", quiet=False)
+```
+
+python test.py
+
+
+Test2_opencvNoistImage만들기
+
+
+pip install opencv-python
+pip install numpy
+
