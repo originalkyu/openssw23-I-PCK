@@ -5,8 +5,11 @@
 박찬규 201912325
 
 ## Topic Introduction
-NAFNet을 이용한 디노이징과 opencv의 이미지 필터링(cv2.filter2D, cv2.medianBlur)을 이용한 디노이징 결과 비교하기
-- 참고 리포지토리: https://github.com/megvii-research/NAFNet
+주제: NAFNet을 이용한 디노이징과 opencv의 이미지 필터링(cv2.filter2D, cv2.medianBlur)을 이용한 디노이징 결과를 비교.  
+- 두 방식으로 처리한 이미지를 시각적으로 비교합니다.  
+- 두 방식으로 처리한 이미지를 PSNR을 이용해서 정량적으로 비교합니다.  
+- NAFNet를 이용한 이미지 처리속도와 opencv의 이미지 필터링 함수를 이용한 이미지 처리속도를 비교합니다.  
+- 참고 리포지토리: https://github.com/megvii-research/NAFNet  
 
 ## Results
 예시1)  
@@ -31,13 +34,20 @@ NAFNet을 이용한 디노이징과 opencv의 이미지 필터링(cv2.filter2D, 
 Empty
 
 ## Installation
+* 이 리포지토리의 설치과정과 실행은 conda 4.12.0 환경에서 진행되었지만 가상 환경이 아닌 환경에서도 진행이 가능함.  
 #### 환경:
-- Windows 10
-- python 3.9.16
-- PyTorch 2.0.1
-- CUDA 11.7
+- Windows 10  
+- python 3.9.16  
+- PyTorch 2.0.1  
+- CUDA 11.7  
+  
+#### 필요한 설치
 
-#### 필요한 설치:
+* PyTorch and CUDA 설치  
+```
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117
+```
+
 ```
 pip install -r requirements.txt
 pip install --upgrade --no-cache-dir gdown
@@ -52,23 +62,23 @@ python3 setup.py develop --no_cuda_ext
 import gdown
 gdown.download('https://drive.google.com/uc?id=14Fht1QQJ2gMlk4N1ERCRuElg8JfjrWWR', "./experiments/pretrained_models/", quiet=False)
 ```
-다운받은 pth 파일을 experiments/pretrained_models 폴던에 넣는다.
+다운받은 pth 파일을 experiments/pretrained_models 폴던에 넣는다.  
 
 ### 실행 방법
-1. 현재 repository를 clone
-2. 위의 환경을 갖춘 후 "필요한 설치"의 과정을 따른다.
-3. 원하는 png 이미지를 ./datas/input 폴더에 넣는다.
-4. clone한 폴더로 이동하여  ./datas/input 폴더에 추가한 이미지의 이름과 확장자를 포함하여 openssw-pck.py를 다음과 같이 실행시킨다. 
+1. 현재 repository를 clone  
+2. 위의 환경을 갖춘 후 "필요한 설치"의 과정을 따른다.  
+3. 원하는 png 이미지를 ./datas/input 폴더에 넣는다.  
+4. clone한 폴더로 이동하여  ./datas/input 폴더에 추가한 이미지의 이름과 확장자를 포함하여 openssw-pck.py를 다음과 같이 실행시킨다.   
 ```
 python openssw-pck.py 추가한이미지이름.png
 ```
 5. ./datas 폴더에서 total1-이미지이름.png 와 total2-이미지이름.png 파일을 확인한다.  
    total1-이미지이름.png : 가우시안 노이즈를 추가했을 때의 디노이징 결과  
    total2-이미지이름.png : pepper and salt 노이즈를 추가했을 때의 디노이징 결과  
-   두 개의 결과 이미지는 README.md 파일의 Result 항목과 형식이 같다.
+   두 개의 결과 이미지는 README.md 파일의 Result 항목과 형식이 같다.  
 
-* ./datas/input 폴더에서 input0.png ~ input10.png 파일을 샘플로 이용할 수 있다.
-* ./datas/input 폴더에서 input0.png ~ input10.png 파일을 샘플로 이용할 수 있다
+* ./datas/input 폴더에서 input0.png ~ input10.png 파일을 샘플로 이용할 수 있다.  
+* ./datas/input 폴더에서 input0.png ~ input10.png 파일을 샘플로 이용할 수 있다.  
 
 ## Presentation
 Empty
