@@ -60,7 +60,7 @@ python openssw-pck.py 추가한이미지이름.png
 * ./datas/input 폴더에서 input0.png ~ input10.png 파일을 샘플로 이용할 수 있다.  
 * ./datas/input 폴더에서 input0.png ~ input10.png 파일을 샘플로 이용할 수 있다.    
   
-#### 필요한 설치
+#### 필요한 설치 및 설정
 
 * PyTorch and CUDA 설치  
 ```
@@ -74,22 +74,28 @@ pip install matplotlib
 pip install opencv-python
 pip install numpy
 pip install gdown
+```
+
+* 설정  
+setup.py가 이름 위치에서 다음의 명령어를 실행시킨다.    
+```
 python3 setup.py develop --no_cuda_ext
 ```
 
+
 * pretrained_model 다운로드   
-다음의 코드를 프롬프트에 입력해서 "experiments" 폴더를 다운로드한다.
+다음의 코드를 프롬프트에 입력해서 파이썬을 실행시켜 "experiments" 폴더를 다운로드한다.
 ```
 $ python
-import gdown
-gdown.download('https://drive.google.com/uc?id=14Fht1QQJ2gMlk4N1ERCRuElg8JfjrWWR', "./experiments/pretrained_models/", quiet=False)
-exit()
+>>>import gdown
+>>>gdown.download('https://drive.google.com/uc?id=14Fht1QQJ2gMlk4N1ERCRuElg8JfjrWWR', "./experiments/pretrained_models/", quiet=False)
+>>>exit()
 ```
 "/experiments/pretrained_models"폴더 안에 있는 파일 중 "README.md"가 아닌 파일의 이름을 다음과 같이 바꾼다.  
 ```
 "NAFNet-SIDD-width64.pth" 
 ```
-마지막파일을 클론한 리포지토리의 "experiments/pretrained_models" 폴더로 이동시킨다.  
+이름을 바꾼 파일을 클론한 리포지토리의 "./experiments/pretrained_models" 폴더로 이동시킨다.  
 
 #### Input과 output
 * input  
