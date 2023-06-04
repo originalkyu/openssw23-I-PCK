@@ -196,7 +196,7 @@ def main():
     bars = plt.bar(range(3),[math.log10(t1),math.log10(t2),math.log10(t3)])
 
     plt.xticks([0,1,2], ['filter2D()', 'MedianBlur()', 'NAFNet'])
-    plt.ylabel('log10 of time')
+    plt.ylabel('log10 of time (sec)')
     plt.title("Time of Processing 10 Images")
     plt.text(bars[0].get_x(), bars[0].get_y(),str(round(math.log10(t1),4)))
     plt.text(bars[1].get_x(), bars[1].get_y(),str(round(math.log10(t2),4)))
