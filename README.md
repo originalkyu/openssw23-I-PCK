@@ -33,7 +33,35 @@
   (4) NAFNet을 이용해서 디노이징한 이미지   
 
 ## Analysis/Visualization
-Empty
+[Graph1]  
+![Figure_1](https://github.com/originalkyu/openssw23-I-PCK/assets/107669268/08d4f0aa-c8e7-45e0-8d6c-3b87f0f551ed)
+[Graph2]  
+![Figure_2](https://github.com/originalkyu/openssw23-I-PCK/assets/107669268/54ca2e3b-3065-4f5c-a9fe-2f8b5e5ed725)
+
+#### 분석1: 시각적으로 비교하기
+datas/total1-input1.png 부터 total1-input10.png 까지는 가우시안 노이즈가 추가된 10개의 이미지에서 opencv의 filter2D()함수와 NAFNet으로 디노이즈할 때의 결과물을 붙여둔 이미지이다. 10개의 이미지를 비교할 때 거의 대부분 NAFNet이 opencv의 filter2D() 함수보다 선명한 이미지를 만들어내는 것을 확인할 수 있었다.
+
+datas/total2-input1.png 부터 total2-input10.png 까지는 Pepper and salt 노이즈가 추가된 10개의 이미지에서 opencv의 MedianBlur()와 NAFNet으로 디노이즈할 때의 결과물을 붙여둔 이미지이다. 10개의 이미지를 비교할 때 MedianBlur()함수는 거의 원본과 비슷한 결과물을 냈지만 NAFNet은 노이즈를 효과적으로 제거하지 못한 것을 확인할 수 있었다.
+
+#### 분석2: [Graph1]의 첫 번째와 세 번째 그래프 해석
+가우시안 노이즈가 추가된 11개의 이미지에서 opencv의 filter2D() 함수와 NAFNet를 이용하여 디노이징할 때 pnsr과 ssim을 기준으로 하여 비교하였다.
+결과적으로 psnr과 ssim을 기준으로 본다면, filter2D() 함수와 NAFNet 두 가지 방법 중 어느 것이 낫다고 할 수 없었다. 이유는 다음과 같다. 먼저, 11개의 이미지를 디노이징할 때 두 방법을 이용한 결과물들의 각각의 psnr은 거의 유사하였다. 두 번째로, 두 방법을 이용한 결과물들의 각각의 ssim은 서로 엎치락뒤치락하여 5:6으로 NAFNet의 것이 높았지만 5:6 정도로는 유의미하게 더 낫다고 할 수 없다. 마지막으로 디노이징을 한 결과물들의 psnr 점수와 ssim 점수는 모두 디노이징을 하기 전보다 낮았다.   
+
+#### 분석3: [Graph1]의 두 번째와 네 번째 그래프 해석
+Pepper and salt 노이즈가 추가된 11개의 이미지에서 opencv의 MedianBlur() 함수와 NAFNet를 이용하여 디노이징할 때 psnr과 ssim을 기준으로 하여 비교하였다.
+결과적으로 psnr 기준으로는 MedianBlur함수가 더 나았고, ssim 기준으로는 두 방식이 비슷한 성능을 냈다. 먼저, psnr 기준으로 11개 이미지에서 MedianBlur() 함수의 점수가 항상 더 높았다.
+두 번째로, ssim 점수 기준으로 11개의 이미지에서 1개의 이미지를 제외하고 두 방식의 결과물의 점수는 거의 비슷했다.
+
+#### 분석4: [Graph2] 해석
+Graph2는 각각의 방식을 이용했을 때 10개의 이미지를 처리하는데 얼마나 걸리는지를 log10을 하여 표시한 것이다. filter2D()함수는 10^(-2) 초 정도가 걸렸고, MedianBlur() 함수는 10^(-2.4) 초 정도가 걸렸다. NAFNet 방식은 10^(0.75) 초 정도가 걸렸다. 즉, NAFNet을 이용해서 10개의 이미지를 처리하는 시간은 opencv의 함수를 이용할 때보다 약 10배 정도 오래 걸렸다.
+
+#### 결론
+(1) 시각적으로 비교할 때 가우시안 노이즈를 제거할 때는 NAFNet이 우수하고, Pepper and salt노이즈를 제거할 때는 opencv의 Median Blur 함수가 우수한 것을 명확하게 확인할 수 있었다.
+(2) 시각적으로 비교할 때와 다르게 psnr 점수로 비교할 때 Pepper and salt노이즈를 제거할 때 MedianBlur함수가 NAFNet을 이용할 때보다 낫다를 것을 확인할 수 있었다. 하지만 나머지의 비교에서는 psnr점수와 ssim점수 기준으로, 어느 방식이 유의미하게 낫다고하기 어려웠다.
+(3) 이미지를 처리하는 속도는 opencv가 NAFNet보다 압도적으로 빨랐다.
+(4) 결론 (1),(2)를 고려하면 psnr점수와 ssim점수는 시각적으로 확인했을 때의 차이를 잘 반영못하는 지표이다.
+(5) 결론 (1),(2),(3)을 고려하면 Pepper and salt 노이즈를 제거할 때는 MedianBlur함수가 NAFNet보다 빠르고 효과가 좋다.
+(6) 결론 (1),(3)을 고려하면 가우시안 노이즈를 제거할 때 속도가 중요하다면 filter2D()함수를 이용하고, 시각적으로 나은 결과물이 필요하다면 NAFNet이 낫다.
 
 ## Installation
 * 이 리포지토리의 설치과정과 실행은 conda 4.12.0 환경에서 진행되었지만 conda 가상 환경이 아닌 환경에서도 진행이 가능함.  
@@ -77,7 +105,7 @@ pip install gdown
 ```
 
 * 설정  
-setup.py가 이름 위치에서 다음의 명령어를 실행시킨다.    
+setup.py가 있는 위치에서 다음의 명령어를 실행시킨다.    
 ```
 python3 setup.py develop --no_cuda_ext
 ```
