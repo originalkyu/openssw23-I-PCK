@@ -7,7 +7,7 @@
 ## Topic Introduction
 주제: NAFNet을 이용한 디노이징과 opencv의 이미지 필터링(cv2.filter2D, cv2.medianBlur)을 이용한 디노이징 결과를 비교.  
 - 두 방식으로 처리한 이미지를 시각적으로 비교합니다.  
-- 두 방식으로 처리한 이미지를 PSNR을 이용해서 정량적으로 비교합니다.  
+- 두 방식으로 처리한 이미지를 PSNR, SSIM을 이용해서 정량적으로 비교합니다.  
 - NAFNet를 이용한 이미지 처리속도와 opencv의 이미지 필터링 함수를 이용한 이미지 처리속도를 비교합니다.  
 - 참고 리포지토리: https://github.com/megvii-research/NAFNet  
 
