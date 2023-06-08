@@ -146,5 +146,6 @@ $ python
   - ./datas/total2-추가한파일이름.png : 위의 noisy2, filtered2, NAFNet-2 파일을 가로로 붙여둔 이미지
 
 ## Presentation
-https://youtu.be/h52C1dJZLBI
+https://youtu.be/bx7USVkNdJU
+
 
