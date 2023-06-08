@@ -14,16 +14,19 @@
 * 설치 및 실행, input과 output 관련 사항은 아래의 Installation 참고  
 
 ## Results
-예시1)  
+datas/input 폴더의 input1.png 부터 input10.png까지 총 10개의 이미지를 입력으로 하여 python openssw-pck.py 프로그램을 실행했습니다. 그 결과 total1-input1.png 부터 total1-input10.png 까지, total2-input1.png부터 total2-input10.png 까지 총 20개의 이미지를 datas폴더에 저장하였습니다.  
+
+다음은 대표 이미지 4개입니다.  
+예시1) total1-input6.png
 ![total1-input6](https://github.com/originalkyu/openssw23-I-PCK/assets/107669268/4760c87a-6609-48ed-abf6-174628d5458b)
   
-예시2)  
+예시2) total1-input2.png
 ![total1-input2](https://github.com/originalkyu/openssw23-I-PCK/assets/107669268/261ed282-6637-4846-b909-28d85aa5f3a0)
   
-예시3)  
+예시3) total2-input6.png
 ![total2-input6](https://github.com/originalkyu/openssw23-I-PCK/assets/107669268/6f6652e5-556b-4bee-8981-0a7938708e01)
   
-예시4)  
+예시4) total2-input2.png
 ![total2-input2](https://github.com/originalkyu/openssw23-I-PCK/assets/107669268/223ab2d9-1343-4ef3-853f-459dca7010ff)  
 
 각 이미지의 구성은 왼쪽부터 차례대로  
