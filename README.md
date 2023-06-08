@@ -15,31 +15,31 @@
 
 ## Results
 datas/input 폴더의 input1.png 부터 input10.png까지 총 10개의 이미지를 입력으로 하여 python openssw-pck.py 프로그램을 실행했습니다. 그 결과 total1-input1.png 부터 total1-input10.png 까지, total2-input1.png부터 total2-input10.png 까지 총 20개의 이미지를 datas폴더에 저장하였습니다.  
-
-다음은 대표 이미지 4개입니다.  
-예시1) total1-input6.png
-![total1-input6](https://github.com/originalkyu/openssw23-I-PCK/assets/107669268/4760c87a-6609-48ed-abf6-174628d5458b)
   
-예시2) total1-input2.png
-![total1-input2](https://github.com/originalkyu/openssw23-I-PCK/assets/107669268/261ed282-6637-4846-b909-28d85aa5f3a0)
-  
-예시3) total2-input6.png
-![total2-input6](https://github.com/originalkyu/openssw23-I-PCK/assets/107669268/6f6652e5-556b-4bee-8981-0a7938708e01)
-  
-예시4) total2-input2.png
-![total2-input2](https://github.com/originalkyu/openssw23-I-PCK/assets/107669268/223ab2d9-1343-4ef3-853f-459dca7010ff)  
-
-각 이미지의 구성은 왼쪽부터 차례대로  
+각 결과 이미지의 구성은 왼쪽부터 차례대로    
   (1)원본 이미지   
   (2)원본에 노이즈를 추가한 이미지(가우시안 노이즈: 예시1, 예시2),(pepper and salt noise: 예시3, 예시4)   
   (3)opencv filter2D 함수로 필터링한 이미지(예시1, 예시2)  opencv medianBlur 함수로 필터링한 이미지(예시3, 예시4)   
-  (4) NAFNet을 이용해서 디노이징한 이미지   
+  (4) NAFNet을 이용해서 디노이징한 이미지  
+
+다음은 대표 이미지 4개입니다.  
+예시1) total1-input6.png  
+![total1-input6](https://github.com/originalkyu/openssw23-I-PCK/assets/107669268/4760c87a-6609-48ed-abf6-174628d5458b)  
+  
+예시2) total1-input2.png  
+![total1-input2](https://github.com/originalkyu/openssw23-I-PCK/assets/107669268/261ed282-6637-4846-b909-28d85aa5f3a0)  
+  
+예시3) total2-input6.png  
+![total2-input6](https://github.com/originalkyu/openssw23-I-PCK/assets/107669268/6f6652e5-556b-4bee-8981-0a7938708e01)  
+  
+예시4) total2-input2.png  
+![total2-input2](https://github.com/originalkyu/openssw23-I-PCK/assets/107669268/223ab2d9-1343-4ef3-853f-459dca7010ff)     
 
 ## Analysis/Visualization
 [Graph1]  
-![Figure_1](https://github.com/originalkyu/openssw23-I-PCK/assets/107669268/08d4f0aa-c8e7-45e0-8d6c-3b87f0f551ed)
+![Figure_1](https://github.com/originalkyu/openssw23-I-PCK/assets/107669268/08d4f0aa-c8e7-45e0-8d6c-3b87f0f551ed)  
 [Graph2]  
-![Figure_2](https://github.com/originalkyu/openssw23-I-PCK/assets/107669268/54ca2e3b-3065-4f5c-a9fe-2f8b5e5ed725)
+![Figure_2](https://github.com/originalkyu/openssw23-I-PCK/assets/107669268/54ca2e3b-3065-4f5c-a9fe-2f8b5e5ed725)  
 
 #### 분석1: 시각적으로 비교하기
 datas/total1-input1.png 부터 total1-input10.png 까지는 가우시안 노이즈가 추가된 10개의 이미지에서 opencv의 filter2D()함수와 NAFNet으로 디노이즈할 때의 결과물을 붙여둔 이미지이다. 10개의 이미지를 비교할 때 거의 대부분 NAFNet이 opencv의 filter2D() 함수보다 선명한 이미지를 만들어내는 것을 확인할 수 있었다.
